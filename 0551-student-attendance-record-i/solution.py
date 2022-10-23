@@ -1,0 +1,7 @@
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        if s.count('A') < 2:
+            if 'LLL' not in s:
+                return True
+        return False                
+        
