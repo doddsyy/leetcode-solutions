@@ -8,8 +8,8 @@ class Solution:
 
         for row in matrix:
             mini = min(row)
-            idx = row.index(mini)
-            if max(transp[idx]) == mini:
+            
+            if max(transp[row.index(mini)]) == mini:
                 li.append(mini)
         return li
 
