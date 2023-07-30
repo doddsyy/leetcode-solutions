@@ -1,7 +1,12 @@
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
-        dict = {"++X" : 1 ,"X++" : 1 ,"--X" : -1 , 'X--' : -1}
-        li = [dict[i] for i in operations]
         
-        return sum(li)
-        
+        x=0
+
+        for operation in operations:
+            if '+' in operation:
+                x+=1
+            else:
+                x-=1
+        return x
+
