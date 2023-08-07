@@ -1,8 +1,13 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+
         li = []
-        for i in range(0 ,len(nums)):
-            li.append(len(list(filter(lambda x: x < nums[i] , nums))))
-            
-            
+        
+        for num1 in nums:
+            count = 0
+            for num2 in nums:
+                if num1 > num2:
+                    count+=1
+            li.append(count)
+        
         return li
