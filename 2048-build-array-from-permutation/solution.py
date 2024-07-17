@@ -1,9 +1,8 @@
-class Solution:
-    def buildArray(self, nums: List[int]) -> List[int]:
-        li = []
-        
-        for i in nums:
-            li.append(nums[i])
-            
-        return li
+class Solution(object):
+    def buildArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        return [nums[num] for num in nums]
         
