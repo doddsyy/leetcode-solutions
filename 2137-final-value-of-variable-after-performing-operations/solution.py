@@ -1,12 +1,15 @@
-class Solution:
-    def finalValueAfterOperations(self, operations: List[str]) -> int:
-        
-        x=0
+class Solution(object):
+    def finalValueAfterOperations(self, operations):
+        """
+        :type operations: List[str]
+        :rtype: int
+        """
+        num = 0
 
-        for operation in operations:
-            if '+' in operation:
-                x+=1
+        for op in operations:
+            if op[1] == '+':
+                num+=1
             else:
-                x-=1
-        return x
-
+                num-=1
+        return num
+        
