@@ -1,9 +1,13 @@
-class Solution:
-    def shuffle(self, nums: List[int], n: int) -> List[int]:
-        li = []
-        for i in range(n):
-            li.append(nums[i])
-            li.append(nums[i+n])
-
-
-        return li
+class Solution(object):
+    def shuffle(self, nums, n):
+        """
+        :type nums: List[int]
+        :type n: int
+        :rtype: List[int]
+        """
+        new_arr = []
+        for i in range(len(nums)/2):
+            new_arr.append(nums[i])
+            new_arr.append(nums[i+len(nums)/2])
+        return new_arr
+        
