@@ -1,13 +1,18 @@
-class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        arr = []
 
-        li = []
-        
-        for num1 in nums:
+        for i in nums:
             count = 0
-            for num2 in nums:
-                if num1 > num2:
+            for j in nums:
+                if j < i:
                     count+=1
-            li.append(count)
+            arr.append(count)
+        return arr
+
+                
         
-        return li
