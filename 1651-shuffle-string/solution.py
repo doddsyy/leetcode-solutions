@@ -1,13 +1,6 @@
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
-        dict = {}
-        
-        for i in range(len(s)):
-            dict[indices[i]] = s[i]
-            
-        d=''
-        
-        for key,value in sorted(dict.items()):
-            d+=value
-        
-        return d
+        res = [0]*len(indices)
+        for i in range(len(indices)):
+            res[indices[i]] = s[i]
+        return ''.join(res)
