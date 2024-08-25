@@ -1,13 +1,18 @@
 class Solution:
     def decodeMessage(self, key: str, message: str) -> str:
-        alphabet = 'abcdefghijklmnopqrstuvwxyz'
-        dict = {' ' : ' '}
-        i = 0
+        unique_letters = []
+        alpha = 'abcdefghijklmnopqrstuvwxyz'
+        ans = []
+        for letter in key.replace(' ',''):
+            if letter not in unique_letters:
+                unique_letters.append(letter)
         
-        for char in key:
-            if char not in dict:
-                dict[char] = alphabet[i]
-                i+=1
-                
-        return ''.join([dict[x] for x in message])
+        my_dict = dict(zip(unique_letters,alpha ))
+        print(my_dict)
+        for l in message:
+            if l == ' ':
+                ans.append(' ')
+            else:
+                ans.append(my_dict[l])
+        return ''.join(ans)
         
