@@ -1,9 +1,9 @@
-import itertools as it
-
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
-        combs = it.combinations(nums,2)
-        
-        return len([(x) for (x,y) in combs if abs(x-y) == k])
-        
+        count = 0
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if abs(nums[i] - nums[j]) == k:
+                    count+=1
+        return count
         
