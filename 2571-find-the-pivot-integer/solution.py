@@ -1,10 +1,11 @@
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        nums = list(range(1,n+1))
+        rnge = list(range(n+1))
+        for i in range(n+1):
+            if sum(rnge[:i+1]) == sum(rnge[i:]):
+                return i
+        return -1
+        
         
 
-        for i in range(n):
-            if sum(nums[:i+1]) == sum(nums[i:]):
-                return nums[i]
-        return -1
-       
+        
