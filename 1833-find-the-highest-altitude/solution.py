@@ -1,7 +1,10 @@
-import itertools as it
-
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
-        gain.insert(0,0)
-        return max(list(it.accumulate(gain)))
+        alt = 0
+        maxalt = 0
+        for i in range(len(gain)):
+            alt += gain[i]
+            if alt > maxalt:
+                maxalt = alt
+        return maxalt
         
