@@ -1,10 +1,12 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
-        dict = {}
-        li = s.split()
+        idxs = []
+        splt = s.split()
+        sentence = [0] * len(splt)
+        for word in splt:
+            idxs.append(word[-1])
+        for i in range(len(idxs)):
+            sentence[int(idxs[i])-1] = splt[i][:-1]
+        return ' '.join(sentence)
+
         
-        arr = [(i[-1] + i[:-1]) for i in li]
-        
-        arr.sort()
-        
-        return ' '.join([i[1:] for i in arr])
