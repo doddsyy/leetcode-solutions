@@ -1,27 +1,14 @@
-name: LeetCode Sync
-on: workflow_dispatch
+name: Sync Leetcode
+on:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run LeetCode Sync
-        uses: dos-m0nk3y/LeetCode-Synchronizer@v1.1.0
+      - name: Sync Work
+        uses: joshcai/leetcode-sync@v1.7
         with:
-          GITHUB_TOKEN: ${{ github.token }}
-          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
-          LEETCODE_CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
-        continue-on-error: true # Prevents the runner from instantly stopping
-
-      # Fix the hardcoded language list right inside the running server action
-      - name: Patch Python3 Language Bug
-        run: |
-          SCRIPT_PATH="/home/runner/work/_actions/dos-m0nk3y/LeetCode-Synchronizer/v1.1.0/main.py"
-          if [ -f "$SCRIPT_PATH" ]; then
-            sed -i "s/'python3': '.py'/'python3': '.py',\n    'Python3': '.py'/g" "$SCRIPT_PATH"
-          fi
-
-      # Rerun the core synchronization step with the fixed file mapping
-      - name: Retry Sync with Fixed Language
-        run: |
-          python /home/runner/work/_actions/dos-m0nk3y/LeetCode-Synchronizer/v1.1.0/main.py
+          github-token: ${{ github.token }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
 
