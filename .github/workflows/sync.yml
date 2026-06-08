@@ -1,12 +1,11 @@
 name: LeetCode Sync
-on: 
-  workflow_dispatch:
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run Sync
-        uses: jw-98/LeetCode-Synchronizer@v1.3.1
+        uses: dos-m0nk3y/LeetCode-Synchronizer@v1.1.0
         with:
           GITHUB_TOKEN: ${{ github.token }}
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
